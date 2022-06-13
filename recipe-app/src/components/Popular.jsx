@@ -9,18 +9,19 @@ const Popular = () => {
     getPopular();
   }, []);
 
-  // Fetch Popular recipes from API
+  // Fetch Popular recipies from API
   const getPopular = async () => {
     const api = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
     );
     // to get the data in json format
     const data = await api.json();
+    // console.log(data);
     // set setPopular value
     setPopular(data.recipes);
   };
   return (
-    <div key={recipe.id}>
+    <div>
       {popular.map((recipe) => {
         return (
           <div>
