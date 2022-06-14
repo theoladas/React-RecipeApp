@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 const Popular = () => {
   // create a state for the popular recipes
   const [popular, setPopular] = useState([]);
@@ -25,14 +26,30 @@ const Popular = () => {
   return (
     <Wrapper>
       <h3>Popular Picks</h3>
-      {popular.map((recipe) => {
-        return (
-          <Card>
-            <p>{recipe.title}</p>
-            <img src={recipe.image} alt={recipe.title} />
-          </Card>
-        );
-      })}
+      <Splide
+        options={{
+          perPage: 4,
+          // arrows
+          arrows: false,
+          // dots
+          pagination: false,
+          // move the elements around
+          drag: "free",
+          // gap between images
+          gap: "2rem",
+        }}
+      >
+        {popular.map((recipe) => {
+          return (
+            <SplideSlide>
+              <Card>
+                <p>{recipe.title}</p>
+                <img src={recipe.image} alt={recipe.title} />
+              </Card>
+            </SplideSlide>
+          );
+        })}
+      </Splide>
     </Wrapper>
   );
 };
@@ -45,11 +62,12 @@ const Wrapper = styled.div`
 // card for each recipe
 const Card = styled.div`
   min-height: 25rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   overflow: hidden;
 
   img {
     border-radius: 2rem;
+    max-width: 100%;
   }
 `;
 export default Popular;
