@@ -64,10 +64,32 @@ const Card = styled.div`
   min-height: 25rem;
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
 
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 2rem;
-    max-width: 100%;
+  }
+  p {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 export default Popular;
