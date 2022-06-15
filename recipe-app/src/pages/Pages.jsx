@@ -1,11 +1,16 @@
 import React from "react";
 import Home from "./Home";
+import Cuisine from "./Cuisine";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 const Pages = () => {
   return (
-    <div className="pages">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Cuisine" element={<Cuisine />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
