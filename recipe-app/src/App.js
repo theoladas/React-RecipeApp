@@ -1,12 +1,13 @@
 import Category from "./components/Category";
 import Pages from "./pages/Pages";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Category />
       <Pages />
-    </div>
+    </BrowserRouter>
   );
 };
 
