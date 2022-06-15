@@ -11,17 +11,26 @@ const Popular = () => {
     getPopular();
   }, []);
 
-  // Fetch Popular recipies from API
+  // Fetch Popular recipes from API
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-    );
-    // to get the data in json format
-    const data = await api.json();
-    // console.log(data);
-    // set setPopular value
-    setPopular(data.recipes);
-    console.log(data.recipes);
+    // check local storage
+    const checkLocalStorage = localStorage.getItem("popular");
+    // if there is an item on local storage I want to save it
+    if (checkLocalStorage) {
+      setPopular(JSON.parse(checkLocalStorage));
+    }
+    // else if there is nothing there , lets fetch it, using the API key
+    else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+      );
+      const data = await api.json();
+      // setItem to local storage:
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+      // set setPopular value
+      setPopular(data.recipes);
+      console.log(data.recipes);
+    }
   };
   return (
     <Wrapper>
@@ -29,19 +38,15 @@ const Popular = () => {
       <Splide
         options={{
           perPage: 4,
-          // arrows
           arrows: false,
-          // dots
           pagination: false,
-          // move the elements around
           drag: "free",
-          // gap between images
           gap: "2rem",
         }}
       >
         {popular.map((recipe) => {
           return (
-            <SplideSlide>
+            <SplideSlide key={recipe.id}>
               <Card>
                 <p>{recipe.title}</p>
                 <img src={recipe.image} alt={recipe.title} />
@@ -56,11 +61,11 @@ const Popular = () => {
 };
 
 // styles
-// div wrapper
+
 const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
-// card for each recipe
+
 const Card = styled.div`
   min-height: 25rem;
   border-radius: 1rem;
