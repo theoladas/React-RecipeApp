@@ -5,7 +5,7 @@
   /* font-family: 'Lobster', cursive; */
 }
 body {
-  margin: 0;
+  margin: 0% 10%;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,4 +14,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/* basic font styles */
+h4,
+h3,
+a {
+  color: rbg(56, 56, 56);
+}
+h4 {
+  font-size: 1rem;
+}
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin: 2rem 0rem;
 }
