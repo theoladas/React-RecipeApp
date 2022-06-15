@@ -58,6 +58,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 // };
 
 // AFTER LOCAL STORAGE CODE
+
 const Popular = () => {
   // create a state for the popular recipes
   const [popular, setPopular] = useState([]);
@@ -118,7 +119,7 @@ const Popular = () => {
 // styles
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin: 4rem 1rem;
 `;
 
 const Card = styled.div`
