@@ -6,6 +6,7 @@ const Search = () => {
   return (
     <FormStyle action="">
       <div>
+        <FaSearch></FaSearch>
         <input type="text" />
       </div>
     </FormStyle>
