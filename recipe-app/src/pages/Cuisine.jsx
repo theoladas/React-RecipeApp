@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Cuisine = () => {
   //import state
@@ -26,7 +26,7 @@ const Cuisine = () => {
       {cuisine.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.image}></img>
+            <img src={item.image} alt={item.title}></img>
             <h4>{item.title}</h4>
           </Card>
         );
@@ -48,9 +48,9 @@ const Card = styled.div`
     a {
       text-decoration: none;
     }
-    h4 {
-      text-align: center;
-    }
+  }
+  h4 {
+    text-align: center;
   }
 `;
 export default Cuisine;
