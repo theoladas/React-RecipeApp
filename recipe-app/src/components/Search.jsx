@@ -3,11 +3,25 @@ import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
 const Search = () => {
+  // create state
+  const [input, setInput] = useState("");
+  // load another page
+  const submitSearchForm = (e) => {
+    // stop the page to refresh
+    e.preventDefault();
+  };
   return (
-    <FormStyle action="">
+    // create submit event handler and pass the function
+    <FormStyle onSubmit={submitSearchForm}>
       <div>
         <FaSearch></FaSearch>
-        <input type="text" />
+        <input
+          // add event handler , get the text input
+          onChange={() => setInput(e.target.value)}
+          type="text"
+          // add value state
+          value={input}
+        />
       </div>
     </FormStyle>
   );
