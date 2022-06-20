@@ -8,6 +8,8 @@ const Recipe = () => {
   let params = useParams();
   //   create state
   const [details, setDetails] = useState({});
+  //   create state for the buttons. By default active will be the instructions btn
+  const [activeTab, setActiveTab] = useState("instructions");
   // fetch and get recipe.id from the API
   const fetchDetails = async () => {
     // GET the data
@@ -22,6 +24,7 @@ const Recipe = () => {
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
+
   // Render everything
   return (
     <DetailWrapper>
@@ -30,8 +33,18 @@ const Recipe = () => {
         <img src={details.image} alt={details.title} />
       </div>
       <Info>
-        <Button>Instructions</Button>
-        <Button>Ingredients</Button>
+        <Button
+          className={activeTab === "instructions" ? "active" : ""}
+          onClick={() => setActiveTab("instructions")}
+        >
+          Instructions
+        </Button>
+        <Button
+          className={activeTab === "ingredients" ? "active" : ""}
+          onClick={() => setActiveTab("ingredients")}
+        >
+          Ingredients
+        </Button>
       </Info>
     </DetailWrapper>
   );
@@ -42,7 +55,7 @@ const DetailWrapper = styled.div`
   margin-top: 10rem;
   margin-bottom: 5rem;
   display: flex;
-  &.active {
+  .active {
     background: linear-gradient(35deg, #494949, #313131);
     color: white;
   }
