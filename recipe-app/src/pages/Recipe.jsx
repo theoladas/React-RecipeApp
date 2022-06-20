@@ -45,6 +45,10 @@ const Recipe = () => {
         >
           Ingredients
         </Button>
+        <div>
+          <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+          <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+        </div>
       </Info>
     </DetailWrapper>
   );
