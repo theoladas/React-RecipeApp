@@ -45,10 +45,23 @@ const Recipe = () => {
         >
           Ingredients
         </Button>
-        <div>
-          <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-          <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
-        </div>
+        {/* check if activeTab has the instructions */}
+        {activeTab === "instructions" && (
+          <div>
+            <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+            <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+          </div>
+        )}
+        {/* check if activeTab has the ingredients. Then show the ingredients */}
+        {activeTab === "ingredients" && (
+          <div>
+            <ul>
+              {details.extendedIngredients.map((ingredient) => (
+                <li key={ingredient.id}>{ingredient.original}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </Info>
     </DetailWrapper>
   );
