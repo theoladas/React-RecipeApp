@@ -1,14 +1,20 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
+// in order to navigate to a page using a function (submitSearch)
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   // create state
   const [input, setInput] = useState("");
+  // create the variale to navigate
+  const navigate = useNavigate();
   // load another page
   const submitSearchForm = (e) => {
     // stop the page to refresh
     e.preventDefault();
+    // use the navigate variable and add the location you want to go to:
+    navigate("/searched/" + input);
   };
   return (
     // create submit event handler and pass the function
@@ -17,7 +23,7 @@ const Search = () => {
         <FaSearch></FaSearch>
         <input
           // add event handler , get the text input
-          onChange={() => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           type="text"
           // add value state
           value={input}
