@@ -1,12 +1,6 @@
 <h1 align="center">Delicious Recipes App</h1>
 
-<div align="center">
-  <h3>
-    <a href="http://localhost:3000">
-      Live
-    </a>
-  </h3>
-</div>
+
 
 ## Table of Contents
 
