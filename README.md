@@ -1,4 +1,4 @@
-<h1 align="center">Delicious Recipes App</h1>
+<h1 align="center">Recipies App</h1>
 
 
 
