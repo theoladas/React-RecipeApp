@@ -1,38 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
-// in order to navigate to a page using a function (submitSearch)
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
-
-const Search = () => {
-  // create state
-  const [input, setInput] = useState("");
-  // create the variale to navigate
-  const navigate = useNavigate();
-  // load another page
-  const submitSearchForm = (e) => {
-    // stop the page to refresh
-    e.preventDefault();
-    // use the navigate variable and add the location you want to go to:
-    navigate("/searched/" + input);
-  };
-  return (
-    // create submit event handler and pass the function
-    <FormStyle onSubmit={submitSearchForm}>
-      <div>
-        <FaSearch></FaSearch>
-        <input
-          // add event handler , get the text input
-          onChange={(e) => setInput(e.target.value)}
-          type="text"
-          // add value state
-          value={input}
-        />
-      </div>
-    </FormStyle>
-  );
-};
 
 const FormStyle = styled.form`
   margin: 0rem 20rem;
@@ -59,4 +28,30 @@ const FormStyle = styled.form`
     color: white;
   }
 `;
+
+const Search = () => {
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
+
+  const submitSearchForm = (e) => {
+    // stop the page to refresh
+    e.preventDefault();
+    // use the navigate variable and add the location you want to go to:
+    navigate("/searched/" + input);
+  };
+
+  return (
+    <FormStyle onSubmit={submitSearchForm}>
+      <div>
+        <FaSearch></FaSearch>
+        <input
+          onChange={(e) => setInput(e.target.value)}
+          type="text"
+          value={input}
+        />
+      </div>
+    </FormStyle>
+  );
+};
+
 export default Search;
