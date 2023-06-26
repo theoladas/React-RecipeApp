@@ -1,6 +1,12 @@
 <h1 align="center">Recipes App</h1>
 
-
+<div align="center">
+  <h3>
+    <a href="https://theoladas.github.io/React-RecipeApp/">
+      Live
+    </a>
+  </h3>
+</div>
 
 ## Table of Contents
 
@@ -13,8 +19,7 @@
 
 ## Overview
 ![screencapture-localhost-3000-2022-06-21-12_16_46](https://user-images.githubusercontent.com/67963370/174787523-267eef6e-56f5-491a-b12f-b952cfc4065d.png)
-![screencapture-localhost-3000-Cuisine-Italian-2022-06-21-12_17_02](https://user-images.githubusercontent.com/67963370/174787533-fba30dc8-b473-4df5-b14f-2bc50310926c.png)
-![screencapture-localhost-3000-searched-cookies-2022-06-21-12_17_19](https://user-images.githubusercontent.com/67963370/174787543-e19ae8da-7bdc-4578-827a-ca01cb405974.png)
+
 
 
 ### Built With
